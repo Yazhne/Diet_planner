@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Progress</title>
+
+</head>
+
+<body>
+
+<h1>Health Progress</h1>
+
+<table border="1" cellpadding="10">
+
+    <tr>
+
+        <th>Weight</th>
+        <th>Calories</th>
+        <th>Date</th>
+
+    </tr>
+
+    {% for item in progress %}
+
+    <tr>
+
+        <td>{{ item.weight }}</td>
+
+        <td>{{ item.calories_taken }}</td>
+
+        <td>{{ item.date }}</td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Foods</title>
+
+</head>
+
+<body>
+
+<h1>Available Foods</h1>
+
+<table border="1" cellpadding="10">
+
+    <tr>
+
+        <th>Food</th>
+        <th>Calories</th>
+        <th>Protein</th>
+        <th>Cost</th>
+        <th>Alternative</th>
+
+    </tr>
+
+    {% for food in foods %}
+
+    <tr>
+
+        <td>{{ food.name }}</td>
+
+        <td>{{ food.calories }}</td>
+
+        <td>{{ food.protein }}</td>
+
+        <td>{{ food.cost }}</td>
+
+        <td>{{ food.alternative }}</td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+</body>
+</html>

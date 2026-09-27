@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Register</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(to right,#1b4332,#2d6a4f);
+            font-family:Arial;
+        }
+
+        .register-box{
+            width:420px;
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 0 20px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            text-align:center;
+            color:#1b4332;
+            margin-bottom:30px;
+        }
+
+        input{
+            width:100%;
+            padding:14px;
+            margin-top:15px;
+            border-radius:10px;
+            border:1px solid #ccc;
+        }
+
+        button{
+            width:100%;
+            padding:14px;
+            margin-top:20px;
+            background:#2d6a4f;
+            color:white;
+            border:none;
+            border-radius:10px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#1b4332;
+        }
+
+        .error{
+            color:red;
+            margin-top:15px;
+            text-align:center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="register-box">
+
+    <h1>Create Account</h1>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <input type="text"
+               name="username"
+               placeholder="Enter Username"
+               required>
+
+        <input type="password"
+               name="password"
+               placeholder="Enter Password"
+               required>
+
+        <input type="text"
+               name="mobile"
+               placeholder="Enter Mobile Number"
+               required>
+
+        <button type="submit">
+
+            Register
+
+        </button>
+
+    </form>
+
+    {% if error %}
+
+    <div class="error">
+
+        {{ error }}
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

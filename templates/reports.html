@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Reports</title>
+
+</head>
+
+<body>
+
+<h1>Medical Reports</h1>
+
+<table border="1" cellpadding="10">
+
+    <tr>
+
+        <th>BMI</th>
+        <th>Status</th>
+        <th>Calories</th>
+        <th>Budget</th>
+        <th>Date</th>
+
+    </tr>
+
+    {% for report in reports %}
+
+    <tr>
+
+        <td>{{ report.bmi }}</td>
+
+        <td>{{ report.health_status }}</td>
+
+        <td>{{ report.calories_needed }}</td>
+
+        <td>{{ report.budget }}</td>
+
+        <td>{{ report.date }}</td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+<br>
+
+<a href="{% url 'download_pdf' %}">
+
+    <button>
+
+        Download Latest Report
+
+    </button>
+
+</a>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>User Profile</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f4f4f4;
+            padding:40px;
+        }
+
+        .profile-box{
+            width:450px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            text-align:center;
+            color:#1b4332;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            margin-top:15px;
+            border-radius:10px;
+            border:1px solid #ccc;
+        }
+
+        button{
+            width:100%;
+            padding:14px;
+            margin-top:20px;
+            background:#2d6a4f;
+            color:white;
+            border:none;
+            border-radius:10px;
+        }
+
+        img{
+            width:120px;
+            height:120px;
+            border-radius:50%;
+            display:block;
+            margin:auto;
+            object-fit:cover;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="profile-box">
+
+    <h1>User Profile</h1>
+
+    {% if profile.image %}
+
+        <img src="{{ profile.image.url }}">
+
+    {% endif %}
+
+    <form method="POST"
+          enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <input type="text"
+               value="{{ profile.username }}"
+               readonly>
+
+        <input type="text"
+               name="mobile"
+               value="{{ profile.mobile }}"
+               placeholder="Mobile">
+
+        <input type="number"
+               name="age"
+               value="{{ profile.age }}"
+               placeholder="Age">
+
+        <input type="number"
+               step="0.1"
+               name="height"
+               value="{{ profile.height }}"
+               placeholder="Height">
+
+        <input type="number"
+               step="0.1"
+               name="weight"
+               value="{{ profile.weight }}"
+               placeholder="Weight">
+
+        <input type="file"
+               name="image">
+
+        <button type="submit">
+
+            Update Profile
+
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
